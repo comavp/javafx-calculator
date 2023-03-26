@@ -10,8 +10,8 @@ public enum TokenType {
     INT("integer_digit"),
     DOUBLE("double_digit"),
 
-    LB("left_bracket"),
-    RB("right_bracket");
+    LP("left_parenthesis"),
+    RP("right_parenthesis");
 
     private String typeName;
 

@@ -1,4 +1,4 @@
-package parser;
+package calculator;
 
 import org.junit.Test;
 import ru.comavp.calculator.lexer.CalculatorExpressionsAnalyzer;
@@ -17,13 +17,13 @@ public class CalculatorExpressionsAnalyzerTest {
 
     @Test
     public void getTokenListFromValidExpressionTest() {
-        String expression = "(5+2)*3/12-3.7";
+        String expression = "(5+3)*3/12-3.7";
         List<Token> expectedTokenList = Arrays.asList(
-                new Token("(", LB),
+                new Token("(", LP),
                 new Token("5", INT),
                 new Token("+", ADD),
-                new Token("2", INT),
-                new Token(")", RB),
+                new Token("3", INT),
+                new Token(")", RP),
                 new Token("*", MUL),
                 new Token("3", INT),
                 new Token("/", DIV),

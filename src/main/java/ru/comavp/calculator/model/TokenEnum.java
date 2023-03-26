@@ -10,8 +10,8 @@ public enum TokenEnum {
     SUB_TOKEN("-", SUB),
     MUL_TOKEN("*", MUL),
     DIV_TOKEN("/", DIV),
-    LB_TOKEN("(", LB),
-    RB_TOKEN(")", RB);
+    LP_TOKEN("(", LP),
+    RP_TOKEN(")", RP);
 
     private Token token;
 
@@ -27,8 +27,16 @@ public enum TokenEnum {
         return token.getValue();
     }
 
+    public Enum getTokenType() {
+        return token.getType();
+    }
+
     public static boolean isNotDigit(String value) {
         return Arrays.stream(values()).anyMatch(item -> item.getToken().getValue().equals(value));
+    }
+
+    public static boolean isDigit(String value) {
+        return !isNotDigit(value);
     }
 
     public static Token getTokenByValue(String value) {
