@@ -18,7 +18,6 @@ public class CalculatorExpressionsParser implements Parser {
         Queue<Token> result = new ArrayDeque<>();
         Stack<Token> stack = new Stack<>();
 
-        // (5+3)*3/12-3.7
         tokenList.forEach(token -> {
             if (isDigit(token.getValue())) {
                 result.add(token);
