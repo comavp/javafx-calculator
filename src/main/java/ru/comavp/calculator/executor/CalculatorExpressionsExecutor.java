@@ -12,6 +12,8 @@ import static ru.comavp.calculator.model.TokenType.DOUBLE;
 
 public class CalculatorExpressionsExecutor implements ExpressionExecutor {
 
+    private final double EPS = 10e-6;
+
     @Override
     public String calculateExpression(Queue<Token> executableExpression) {
         Stack<Token> stack = new Stack<>();
@@ -44,9 +46,18 @@ public class CalculatorExpressionsExecutor implements ExpressionExecutor {
     }
 
     private String getPrettyResult(String result) {
-        Double resultWithPrecision = BigDecimal.valueOf(Double.parseDouble(result))
-                .setScale(6, RoundingMode.HALF_UP)
-                .doubleValue();
-        return resultWithPrecision.toString();
+        if (result.indexOf('.') == -1) return result;
+
+        if (isInteger(result)) {
+            return result.substring(0, result.indexOf('.'));
+        } else {
+            return String.valueOf(BigDecimal.valueOf(Double.parseDouble(result))
+                    .setScale(6, RoundingMode.HALF_UP)
+                    .doubleValue());
+        }
+    }
+
+    private boolean isInteger(String digit) {
+        return Math.abs(Double.parseDouble(digit) - (int) Double.parseDouble(digit)) < EPS;
     }
 }
