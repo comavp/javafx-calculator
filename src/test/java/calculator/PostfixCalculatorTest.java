@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class PostfixCalculatorTest {
 
     @Test
-    public void getResultForRegularArithmeticExpressions() {
+    public void calculateRegularArithmeticExpressionsTest() {
         Calculator calculator = new PostfixCalculator();
 
         Map<String, String> expectedResultsMap = new HashMap<>() {{
