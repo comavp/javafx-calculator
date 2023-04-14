@@ -13,20 +13,25 @@ import static ru.comavp.calculator.model.TokenType.DOUBLE;
 public class CalculatorExpressionsExecutor implements ExpressionExecutor {
 
     private final double EPS = 10e-6;
+    private final String DIVISION_BY_ZERO_ERROR_MESSAGE = "Деление на ноль невозможно";
 
     @Override
     public String calculateExpression(Queue<Token> executableExpression) {
         Stack<Token> stack = new Stack<>();
 
-        executableExpression.forEach(token -> {
-            if (isDigit(token.getValue())) {
-                stack.push(token);
-            } else {
-                Double secondArg = Double.valueOf(stack.pop().getValue());
-                Double firstArg = Double.valueOf(stack.pop().getValue());
-                stack.push(executeOperation(firstArg, secondArg, token.getType()));
-            }
-        });
+        try {
+            executableExpression.forEach(token -> {
+                if (isDigit(token.getValue())) {
+                    stack.push(token);
+                } else {
+                    Double secondArg = Double.valueOf(stack.pop().getValue());
+                    Double firstArg = Double.valueOf(stack.pop().getValue());
+                    stack.push(executeOperation(firstArg, secondArg, token.getType()));
+                }
+            });
+        } catch (DivisionByZeroException e) {
+            return DIVISION_BY_ZERO_ERROR_MESSAGE;
+        }
 
         return getPrettyResult(stack.pop().getValue());
     }
@@ -40,6 +45,9 @@ public class CalculatorExpressionsExecutor implements ExpressionExecutor {
         } else if (MUL_TOKEN.getTokenType().equals(operationType)) {
             result = arg1 * arg2;
         } else if (DIV_TOKEN.getTokenType().equals(operationType)) {
+            if (arg2 == 0.0) {
+                throw new DivisionByZeroException();
+            }
             result = arg1 / arg2;
         }
         return new Token(result.toString(), DOUBLE);
