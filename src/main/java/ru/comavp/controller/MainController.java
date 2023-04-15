@@ -14,22 +14,50 @@ public class MainController {
 
     private Calculator calculator = new PostfixCalculator();
 
-    private String DIVISION_BY_ZERO = "Деление на ноль невозможно";
+    private boolean isResultComputed = false;
 
-    public void addSymbol(Event event) {
-        if (DIVISION_BY_ZERO.equals(expression.getText())) {
+    public void addDigit(Event event) {
+        if (isResultComputed) {
             expression.setText("");
+            isResultComputed = false;
         }
 
+        addElement(event);
+    }
+
+    public void addArithmeticOperation(Event event) {
+        if (isResultComputed) {
+            isResultComputed = false;
+        }
+
+        addElement(event);
+    }
+
+    public void addSymbol(Event event) {
         Button button = (Button) event.getSource();
-        expression.setText(expression.getText() + button.getText());
+
+        if (isResultComputed) {
+            if (".".equals(button.getText())) {
+                expression.setText("0");
+            } else {
+                expression.setText("");
+            }
+            isResultComputed = false;
+        }
+
+        addElement(event);
+    }
+
+    private void addElement(Event event) {
+        expression.setText(expression.getText() + ((Button) event.getSource()).getText());
     }
 
     public void getResult() {
-        if (DIVISION_BY_ZERO.equals(expression.getText())) {
+        if (isResultComputed) {
             return;
         }
 
         expression.setText(calculator.getExpressionResult(expression.getText()));
+        isResultComputed = true;
     }
 }
