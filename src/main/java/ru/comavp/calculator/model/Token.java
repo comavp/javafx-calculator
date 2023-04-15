@@ -8,5 +8,5 @@ import lombok.Data;
 public class Token {
 
     private String value;
-    private Enum type;
+    private TokenType type;
 }

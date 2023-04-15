@@ -1,6 +1,7 @@
 package ru.comavp.calculator.executor;
 
 import ru.comavp.calculator.model.Token;
+import ru.comavp.calculator.model.TokenType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -9,6 +10,7 @@ import java.util.Stack;
 
 import static ru.comavp.calculator.model.TokenEnum.*;
 import static ru.comavp.calculator.model.TokenType.DOUBLE;
+import static ru.comavp.calculator.model.TokenType.UM;
 
 public class CalculatorExpressionsExecutor implements ExpressionExecutor {
 
@@ -23,10 +25,13 @@ public class CalculatorExpressionsExecutor implements ExpressionExecutor {
             executableExpression.forEach(token -> {
                 if (isDigit(token.getValue())) {
                     stack.push(token);
+                } else if (UM.equals(token.getType())) {
+                    Double arg = Double.valueOf(stack.pop().getValue());
+                    stack.push(executeUnaryOperation(arg, token.getType()));
                 } else {
                     Double secondArg = Double.valueOf(stack.pop().getValue());
                     Double firstArg = Double.valueOf(stack.pop().getValue());
-                    stack.push(executeOperation(firstArg, secondArg, token.getType()));
+                    stack.push(executeBinaryOperation(firstArg, secondArg, token.getType()));
                 }
             });
         } catch (DivisionByZeroException e) {
@@ -36,7 +41,16 @@ public class CalculatorExpressionsExecutor implements ExpressionExecutor {
         return getPrettyResult(stack.pop().getValue());
     }
 
-    private Token executeOperation(Double arg1, Double arg2, Enum operationType) {
+    private Token executeUnaryOperation(Double arg, TokenType operationType) {
+        if (UM_TOKEN.getTokenType().equals(operationType)) {
+            arg *= -1;
+            return new Token(arg.toString(), DOUBLE);
+        }
+
+        throw new UnknownTokenException();
+    }
+
+    private Token executeBinaryOperation(Double arg1, Double arg2, TokenType operationType) {
         Double result = 0.0;
         if (ADD_TOKEN.getTokenType().equals(operationType)) {
             result = arg1 + arg2;

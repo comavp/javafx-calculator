@@ -6,6 +6,7 @@ public enum TokenType {
     SUB("subtraction"),
     MUL("multiplication"),
     DIV("division"),
+    UM("unary_minus"),
 
     INT("integer_digit"),
     DOUBLE("double_digit"),

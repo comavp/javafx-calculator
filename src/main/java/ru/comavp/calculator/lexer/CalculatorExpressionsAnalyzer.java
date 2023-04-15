@@ -7,8 +7,7 @@ import ru.comavp.calculator.model.TokenType;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.comavp.calculator.model.TokenType.DOUBLE;
-import static ru.comavp.calculator.model.TokenType.INT;
+import static ru.comavp.calculator.model.TokenType.*;
 
 public class CalculatorExpressionsAnalyzer implements Lexer {
 
@@ -21,7 +20,9 @@ public class CalculatorExpressionsAnalyzer implements Lexer {
 
         while (currentInd < expression.length()) {
             Character currentSymbol = expression.charAt(currentInd);
-            if (TokenEnum.isNotDigit(currentSymbol.toString())) {
+            if ('-' == currentSymbol) {
+                tokenList.add(getMinus(currentSymbol, expression));
+            } else if (TokenEnum.isNotDigit(currentSymbol.toString())) {
                 tokenList.add(TokenEnum.getTokenByValue(currentSymbol.toString()));
             } else {
                 tokenList.add(getDigit(currentSymbol, expression));
@@ -31,6 +32,14 @@ public class CalculatorExpressionsAnalyzer implements Lexer {
         }
 
         return tokenList;
+    }
+
+    private Token getMinus(Character currentSymbol, String expression) {
+        if (currentInd == 0 || expression.charAt(currentInd - 1) == '(') {
+            return new Token(currentSymbol.toString(), UM);
+        } else {
+            return new Token(currentSymbol.toString(), SUB);
+        }
     }
 
     private Token getDigit(Character currentSymbol, String expression) {

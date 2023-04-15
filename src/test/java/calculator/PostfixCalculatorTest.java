@@ -26,6 +26,10 @@ public class PostfixCalculatorTest {
             put("4.0/2.0", "2");
             put("4*(5*(3+3))/(3+0)", "40");
             put("4/0", "Деление на ноль невозможно");
+            put("-5+10", "5");
+            put("-23.0+43", "20");
+            put("-(-9)", "9");
+            put("-(-(-9))", "-9");
         }};
 
         expectedResultsMap.forEach((expression, expectedResult) -> {

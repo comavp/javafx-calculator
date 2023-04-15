@@ -10,7 +10,8 @@ public enum OperationPriorityEnum {
     ADD_PRIORITY(ADD, 1),
     SUB_PRIORITY(SUB, 1),
     MUL_PRIORITY(MUL, 2),
-    DIV_PRIORITY(DIV, 2);
+    DIV_PRIORITY(DIV, 2),
+    UM_PRIORITY(UM, 3);
 
     private TokenType tokenType;
     private int operationPriority;

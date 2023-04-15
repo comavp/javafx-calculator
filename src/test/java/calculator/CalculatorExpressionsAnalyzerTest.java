@@ -17,9 +17,10 @@ public class CalculatorExpressionsAnalyzerTest {
 
     @Test
     public void getTokenListFromValidExpressionTest() {
-        String expression = "(5+3)*3/12-3.7";
+        String expression = "(-5+3)*3/12-3.7";
         List<Token> expectedTokenList = Arrays.asList(
                 new Token("(", LP),
+                new Token("-", UM),
                 new Token("5", INT),
                 new Token("+", ADD),
                 new Token("3", INT),

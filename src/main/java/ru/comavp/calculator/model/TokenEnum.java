@@ -11,7 +11,8 @@ public enum TokenEnum {
     MUL_TOKEN("*", MUL),
     DIV_TOKEN("/", DIV),
     LP_TOKEN("(", LP),
-    RP_TOKEN(")", RP);
+    RP_TOKEN(")", RP),
+    UM_TOKEN("-", UM);
 
     private Token token;
 
@@ -27,7 +28,7 @@ public enum TokenEnum {
         return token.getValue();
     }
 
-    public Enum getTokenType() {
+    public TokenType getTokenType() {
         return token.getType();
     }
 
