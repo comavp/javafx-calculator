@@ -15,30 +15,33 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#getResult" prefHeight="25.0" prefWidth="109.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="127.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="116.0" text="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="147.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="138.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="133.0" text="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="164.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="128.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="93.0" text="7" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="107.0" text="8" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="162.0" text="9" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="115.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="125.0" text="(" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="114.0" text=")" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="123.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="124.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="120.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="122.0" text="*" GridPane.columnIndex="3" />
+            <Button mnemonicParsing="false" onAction="#getResult" prefHeight="25.0" prefWidth="109.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="127.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="116.0" text="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="147.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="138.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="133.0" text="4" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="164.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="128.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="93.0" text="7" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="107.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="162.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#addDigit" prefHeight="25.0" prefWidth="115.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="125.0" text="(" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#addSymbol" prefHeight="25.0" prefWidth="114.0" text=")" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="123.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="124.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="120.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#addArithmeticOperation" prefHeight="25.0" prefWidth="122.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#removeSymbols" prefHeight="25.0" prefWidth="94.0" text="C" GridPane.columnIndex="2" />
+            <Button mnemonicParsing="false" onAction="#removeSymbols" prefHeight="25.0" prefWidth="99.0" text="&lt;-" GridPane.columnIndex="3" />
          </children>
       </GridPane>
    </children>

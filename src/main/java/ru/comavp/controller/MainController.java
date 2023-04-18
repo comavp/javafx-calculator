@@ -48,8 +48,14 @@ public class MainController {
         addElement(event);
     }
 
-    private void addElement(Event event) {
-        expression.setText(expression.getText() + ((Button) event.getSource()).getText());
+    public void removeSymbols(Event event) {
+        Button button = (Button) event.getSource();
+
+        if ("<-".equals(button.getText())) {
+            removeElement();
+        } else if ("C".equals(button.getText())) {
+            removeAllElements();
+        }
     }
 
     public void getResult() {
@@ -59,5 +65,22 @@ public class MainController {
 
         expression.setText(calculator.getExpressionResult(expression.getText()));
         isResultComputed = true;
+    }
+
+    private void addElement(Event event) {
+        expression.setText(expression.getText() + ((Button) event.getSource()).getText());
+    }
+
+    private void removeElement() {
+        if (expression.getText().length() < 1) {
+            return;
+        }
+
+        String currentText = expression.getText();
+        expression.setText(currentText.substring(0, currentText.length() - 1));
+    }
+
+    private void removeAllElements() {
+        expression.setText("");
     }
 }
