@@ -1,0 +1,30 @@
+VBox {
+    -fx-background-color: #b9b9b9;
+}
+
+Label {
+    -fx-background-color: #4c4c4c;
+    -fx-text-fill: white;
+}
+
+Button {
+    -fx-font-size: 20px;
+}
+
+#expression {
+    -fx-font-size: 36px;
+}
+
+.equals {
+    -fx-background-color: SteelBlue;
+    -fx-text-fill: white;
+}
+
+.operation {
+    -fx-background-color: #f5923d;
+    -fx-text-fill: white;
+}
+
+.non-operation {
+    -fx-background-color: #e0e0e0;
+}
