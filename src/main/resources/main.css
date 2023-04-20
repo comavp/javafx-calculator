@@ -20,11 +20,23 @@ Button {
     -fx-text-fill: white;
 }
 
+.equals:hover {
+    -fx-background-color: #7da9cd;
+}
+
 .operation {
     -fx-background-color: #f5923d;
     -fx-text-fill: white;
 }
 
+.operation:hover {
+    -fx-background-color: #f8ba84;
+}
+
 .non-operation {
     -fx-background-color: #e0e0e0;
+}
+
+.non-operation:hover {
+    -fx-background-color: #c7c7c7;
 }
